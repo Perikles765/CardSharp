@@ -1,0 +1,6 @@
+package cardsharp;
+
+public enum Suit {
+
+	CLUBS, HEARTS, SPADES, DIAMONDS;
+}
