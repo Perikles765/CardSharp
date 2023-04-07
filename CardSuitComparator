@@ -1,0 +1,19 @@
+package cardsharp;
+
+import java.util.Comparator;
+
+public class CardSuitComparator implements Comparator<Cards>{
+	
+	/**
+	 * Comparator that takes advantage of the fact that Enums have a natural 
+	 * based upon the order when its declared
+	 */
+	@Override
+	public int compare(Cards o1, Cards o2) {
+		
+		return o1.getSuit().compareTo(o2.getSuit());
+	}
+
+	
+
+}
