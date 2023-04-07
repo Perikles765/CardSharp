@@ -1,0 +1,161 @@
+/**
+ * 
+ */
+package cardsharp;
+
+/**
+ * @author BTrainor
+ *
+ */
+public class Cards {
+	// static variable for card values
+	private final int MINVALUE = 2;
+	private final int MAXVALUE = 14;
+
+	// instance variable for the class
+	private int cardValue;
+	private Suit suit;
+	
+	
+	/**
+	 * Constructor with args
+	 * @param cardValue
+	 * @param suit
+	 */
+	public Cards(int cardValue, Suit suit) {
+		this.cardValue = cardValue;
+		this.suit = suit;
+	}
+	
+	
+	
+	/**
+	 * to string method
+	 */
+	@Override
+	public String toString() {
+		return String.format("%s of %s",printFriendlyCardValue(cardValue),printFriendlySuit(suit));
+	}
+
+
+
+
+	/*
+	 * gets cardValue
+	 */
+	public int getCardValue() {
+		return cardValue;
+	}
+
+	/**
+	 * sets card value between 2 & 4 inclusive as per business rules
+	 * 
+	 * @param cardValue
+	 * @throws IllegalArgumentException
+	 */
+	public void setCardValue(int cardValue) throws IllegalArgumentException {
+		if (cardValue >= MINVALUE && cardValue <= MAXVALUE) {
+			this.cardValue = cardValue;
+		} else {
+			throw new IllegalArgumentException("Invalid value");
+		}
+	}
+
+	/**
+	 * 
+	 * @return suit
+	 */
+	public Suit getSuit() {
+		return suit;
+	}
+
+	/**
+	 * 
+	 * @param suit
+	 */
+	public void setSuit(Suit suit) throws IllegalArgumentException{
+		if (suit == null) {
+			throw new IllegalArgumentException("Can't be null");
+		} else {
+			this.suit = suit;
+		}
+
+	}
+	
+	/**
+	 * method to output a print friendly version of the card values. E.g 11-Jack etc. 
+	 * @param cardValue
+	 * @return
+	 */
+	private static String printFriendlyCardValue(int cardValue) {
+		String cardName = "Error";
+		switch (cardValue) {
+		case 2:
+			cardName = "2";
+			break;
+		case 3:
+			cardName = "3";
+			break;
+		case 4:
+			cardName = "4";
+			break;
+		case 5:
+			cardName = "5";
+			break;
+		case 6:
+			cardName = "6";
+			break;
+		case 7:
+			cardName = "7";
+			break;
+		case 8:
+			cardName = "8";
+			break;
+		case 9:
+			cardName = "9";
+			break;
+		case 10:
+			cardName = "10";
+			break;
+		case 11:
+			cardName = "Jack";
+			break;
+		case 12:
+			cardName = "Queen";
+			break;
+		case 13:
+			cardName = "King";
+			break;
+		case 14:
+			cardName = "Ace";
+			break;
+		}
+		return cardName;
+	}
+	
+	
+	/**
+	 * method to change all Caps enums to a print friendly string
+	 * @param suit
+	 * @return
+	 */
+	private static String printFriendlySuit(Suit suit) {
+		String suitName = "Error";
+		switch (suit) {
+		case CLUBS:
+			suitName = "Clubs";
+			break;
+		case HEARTS:
+			suitName = "Hearts";
+			break;
+		case SPADES:
+			suitName = "Spades";
+			break;
+		case DIAMONDS:
+			suitName = "Diamonds";
+			break;
+		}
+		return suitName;
+	}
+
+}
